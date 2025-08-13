@@ -314,3 +314,67 @@
                 BlackMetal = 'BLACKMETAL'
             }
 //Enums  --------------
+
+//Generics  --------------
+
+//Imagine que temos uma função que retorna o maior numero em um array
+    function findMaxNumber(array: number[]): number {
+        return array.reduce((max, item) => (item > max ? item : max));
+    }
+
+//Se quisermos criar a mesma função agora com strings, devemos reescrever tudo novamente 
+    function findMaxString(array: string[]): string {
+        return array.reduce((max, item) => (item > max ? item : max));
+    }
+
+//Para evitar reescrever a mesma função, podemos reutilizá-la passando qualquer tipo
+    //Utilizamos <T> para indicar que iremos utilizar um tipo Generico
+
+    function findMaxGeneric<T>(array: T[]): T {
+        return array.reduce((max, item) => (item > max ? item : max));
+}
+
+//Generics em classes
+  //Utilzamos <T> para indicar que iremos utilizar uma classe generica
+    class Container<T> {
+        constructor(public value: T){}
+    }
+
+  //Agora podemos instanciar a mesma classe com qualquer tipo
+    let container1 = new Container('s') //string
+    let container2 = new Container(10) //number
+
+  //Se definirmos uma instancia como string, não podemos assinar ela como outro tipo depois
+    let containe3 = new Container('s')
+    // container3 = 10; //Error
+
+//////////PT2
+//Podemos declarar um array de numberos de duas formas
+  const numbers1: number[] = [1,2,3];
+  const numbers2: Array<number> = [4,5,6];
+
+//Vamos aprender a instanciar classes genericas 
+  class BoxClass<T>{
+    content: T
+    constructor(content:T){
+      this.content = content;
+    }
+  }
+
+  //Damos o tipo com o nome da classe e declaramos o tipo entre '<>'
+  const StringBoxClass:BoxClass<string> = new BoxClass('Hello');
+
+
+//INTERFACES GENERICS
+    interface BoxInterface<T> {
+    content: T
+    }
+
+//Damos o tipo com o nome da interface e declaramos o tipo entre '<>'
+    const StringBoxInterface:BoxInterface<string> = {
+    content:'Hello!'
+    }
+
+//Porém o typescript é capaz de inferir o tipo sem precisar de tudo isso exemplo:
+    const InfClass = new BoxClass(10)
+//Generics  --------------
