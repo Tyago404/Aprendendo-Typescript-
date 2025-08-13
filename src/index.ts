@@ -316,7 +316,6 @@
 //Enums  --------------
 
 //Generics  --------------
-
 //Imagine que temos uma função que retorna o maior numero em um array
     function findMaxNumber(array: number[]): number {
         return array.reduce((max, item) => (item > max ? item : max));
@@ -378,3 +377,51 @@
 //Porém o typescript é capaz de inferir o tipo sem precisar de tudo isso exemplo:
     const InfClass = new BoxClass(10)
 //Generics  --------------
+
+
+//UTILS
+const letters:string[] = ['a','b','c'];
+
+//Resgatando valores especificos
+    const [, , x] = letters
+    console.log(x)
+
+
+//Resgatando e modificando valores ///////////////////////////////////////////
+    // let [xx,zz,yy] = letters
+    // xx = 'z'
+    // console.log(xx)
+
+//Destructuring em function ///////////////////////////////////////////
+    function values(a:number,b:number){
+        const som = a + b;
+        const min = a - b;
+        const div = a / b;
+        const times = a * b;
+
+    return [som,min,div,times]
+    }
+
+const [som, min, div, times] = values(10,20)
+console.log(div);
+ 
+//Outro exemplo ////////////////////////////////
+interface Human {
+    age:number;
+    nome:string;
+    color:string;
+    last_Name:string;
+}
+
+const Human1:Human = {
+    age:23,
+    nome:'Nadson',
+    color:'Preto',
+    last_Name:'Ferinha'
+}
+
+function JaozinSentence({nome,color}:Human):void {
+    console.log(`Hello! My name is${nome}, i'm ${color} `)
+}
+
+JaozinSentence(Human1);
