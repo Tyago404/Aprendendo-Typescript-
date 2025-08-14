@@ -425,3 +425,32 @@ function JaozinSentence({nome,color}:Human):void {
 }
 
 JaozinSentence(Human1);
+
+//////Desestruturando mais a fundo em objetos 
+interface Human2 {
+    name:string;
+    age:number;
+    last_name:string;
+    parents:{
+        aunt:string;
+        sister:string;
+        grandpa:string;
+    }
+}
+
+const Profile:Human2 = {
+    name:"Nadson",
+    age:30,
+    last_name:"Ferinha",
+    parents:{
+        aunt:"AuntNadsa",
+        sister:"SisNadsa",
+        grandpa:"GrandNadso"
+    }
+}
+
+function Destructuring({name,age,parents:{grandpa}}:Human2):void{
+    console.log(`Hello ${name} you're ${age}. Your grandpa is ${grandpa}`)
+}
+Destructuring(Profile)
+
