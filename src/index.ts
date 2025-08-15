@@ -454,3 +454,35 @@ function Destructuring({name,age,parents:{grandpa}}:Human2):void{
 }
 Destructuring(Profile)
 
+
+//Spread  --------------
+
+//junção de arrays com spread
+    const arr1: number[] = [1,2,3];
+    const arr2: number[] = [4,5,6];
+
+    const somArrays: number[] = [...arr1, ...arr2];
+// console.log(somArrays)
+
+//Desestruturação com spread
+    const myArray = [1,2,3,4,5,6];
+    const [a,b,c, ...x] = myArray;
+
+// console.log(...x)
+
+//junção de objetos com spread
+    const obj1 = {
+        item1:10,
+        item2:20,
+        item3:30        
+    }
+
+    const obj2 = {
+        item4:40,
+        item5:50,
+        item6:60
+    }
+
+    const objects1and2 = {...arr1 , arr2};
+    console.log(objects1and2)
+
