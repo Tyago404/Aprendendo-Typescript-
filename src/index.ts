@@ -486,3 +486,47 @@ Destructuring(Profile)
     const objects1and2 = {...arr1 , arr2};
     console.log(objects1and2)
 
+//Metodos em objeto --------------
+   let obj10 = {
+      item1: 10,
+      item2: 20,
+      item3: 30,
+       objFunction():string{
+        return `${this.item1} and ${this.item2}`
+        
+      }
+    }
+console.log(obj10.objFunction());
+
+//Utilizando interface
+interface ObjInterface {
+    item1:number;
+    item2:number;
+    objMethod():number
+}
+
+const ObjMethod:ObjInterface = {
+    item1:10,
+    item2:20,
+    objMethod(){
+        return this.item1 * this.item2
+    }
+};
+console.log(ObjMethod.objMethod())
+
+
+//Adicionando Metodos em objetos já existentes
+interface ObjInterface2 {
+    item1:number;
+    item2:number;
+    method1?():number  //optional method
+}
+
+const ObjMethod2:ObjInterface2 = {
+    item1:10,
+    item2:20,
+};
+ObjMethod2.method1 = function () {
+    return 50
+}
+console.log(ObjMethod2.method1())
