@@ -37,6 +37,21 @@
 
     //array de dois tipos
     let stuff:(number|string)[] = [1,2,3,'a','c','d']
+
+    //Tuples - Uma tupla é uma matriz tipada com comprimento e tipos predefinidos para cada índice.
+    let myTuple:[string,string,number,boolean];
+    myTuple = ['a', 'b', 33, true]
+    
+    //Também podemos adicionar valores
+    myTuple.push('PushingValue')
+    // console.log(myTuple)
+
+    //Para melhor leitura, existem as tuplas nomeadas
+    const namedTuples: [string,number] = ['a', 1];
+    
+    //Destruturando
+    const [x,y] = namedTuples;
+
 //Arrays  --------------
 
 //Objetos  --------------
