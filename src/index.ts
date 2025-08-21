@@ -545,3 +545,11 @@ ObjMethod2.method1 = function () {
     return 50
 }
 console.log(ObjMethod2.method1())
+
+//Utility Types, Recordé um atalho para definir um tipo de objeto com um tipo de chave e um tipo de valor específicos
+const nameAgeMap: Record<string, number> = {
+    'a': 10,
+    'b': 20,
+}
+
+// console.log(nameAgeMap.b)
